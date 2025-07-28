@@ -358,7 +358,16 @@ Or use curl:
 ```bash
 curl -H "Host: demo.local" http://$(minikube ip)
 ```
+Access through Ingress (demo.local) is currently not functioning.
+Accessing the Application
+Currently, the application is accessible only via port forwarding. Access through the configured Ingress (demo.local) is not working despite the setup. This issue may be related to Minikube DNS resolution, Ingress configuration, or system-level network settings.
 
+To access the application, use the following port-forward command:
+
+
+kubectl port-forward svc/django-service 8000:8000
+Then visit:
+http://localhost:8000
 ---
 
 ## Troubleshooting
